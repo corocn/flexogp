@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>default</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0/css/bootstrap-reboot.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <style>
+    .container {
+      width: 1200px;
+      height: 630px;
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 1100px;
+      height: 530px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .title {
+      font-size: 72px;
+      font-family: 'Noto Sans', sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="box">
+    <div class="title">
+      {{ title }}
+    </div>
+  </div>
+</div>
+</body>
+</html>
