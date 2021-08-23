@@ -5,7 +5,7 @@ import handlebars from 'handlebars';
 
 @Injectable()
 export class AppService {
-  async getFile() {
+  async createImage() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 630 });

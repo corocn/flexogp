@@ -1,7 +1,5 @@
-import { Controller, Get, Header, Res, Response, StreamableFile } from '@nestjs/common';
+import { Controller, Get, Header, StreamableFile } from '@nestjs/common';
 import { AppService } from './app.service';
-import { createReadStream } from 'fs';
-import { join } from 'path';
 
 @Controller()
 export class AppController {
@@ -10,7 +8,7 @@ export class AppController {
   @Get()
   @Header('Content-Type', 'image/png')
   async getFile() {
-    const file = await this.appService.getFile();
+    const file = await this.appService.createImage();
     return new StreamableFile(file);
   }
 }
