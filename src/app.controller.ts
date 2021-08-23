@@ -8,7 +8,9 @@ export class AppController {
   @Get()
   @Header('Content-Type', 'image/png')
   async getFile() {
-    const file = await this.appService.createImage();
+    const file = await this.appService.createImage(
+      'あいうえおかきくけこさしすせそ',
+    );
     return new StreamableFile(file);
   }
 }

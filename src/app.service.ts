@@ -5,21 +5,25 @@ import handlebars from 'handlebars';
 
 @Injectable()
 export class AppService {
-  async createImage() {
+  async createImage(text: string, layoutName = 'default') {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 630 });
-    const hbsFile = fs.readFileSync('src/templates/default.html.hbs', 'utf8');
+
+    const layoutFileName = `src/templates/${layoutName}.html.hbs`;
+    const hbsFile = fs.readFileSync(layoutFileName, 'utf8');
 
     const template = handlebars.compile(hbsFile);
-    const html = template({ title: 'これはタイトルですこれはタイトルですこれはタイトルです' });
+    const html = template({ title: text });
 
     page.setContent(html);
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
     await page.evaluateHandle('document.fonts.ready');
-    await page.screenshot({ path: './tmp/example.png' });
+
+    const outputFileName = 'output.png';
+    await page.screenshot({ path: `tmp/${outputFileName}` });
     await browser.close();
 
-    return fs.createReadStream('./tmp/example.png');
+    return fs.createReadStream(`tmp/${outputFileName}`);
   }
 }
