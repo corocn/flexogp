@@ -2,6 +2,14 @@ import { Injectable } from '@nestjs/common';
 import * as puppeteer from 'puppeteer';
 import * as fs from 'fs';
 import handlebars from 'handlebars';
+import { Duplex } from 'stream';
+
+const bufferToStream = (myBuffer) => {
+  const tmp = new Duplex();
+  tmp.push(myBuffer);
+  tmp.push(null);
+  return tmp;
+};
 
 @Injectable()
 export class AppService {
@@ -19,11 +27,9 @@ export class AppService {
     page.setContent(html);
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
     await page.evaluateHandle('document.fonts.ready');
-
-    const outputFileName = 'output.png';
-    await page.screenshot({ path: `tmp/${outputFileName}` });
+    const buffer = await page.screenshot();
     await browser.close();
 
-    return fs.createReadStream(`tmp/${outputFileName}`);
+    return bufferToStream(buffer);
   }
 }
