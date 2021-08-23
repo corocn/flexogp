@@ -8,9 +8,9 @@ export class AppController {
   @Get()
   @Header('Content-Type', 'image/png')
   async getFile() {
-    const file = await this.appService.createImage(
+    const stream = await this.appService.createImage(
       'Next.jsとesaを使った個人サイト構築',
     );
-    return new StreamableFile(file);
+    return new StreamableFile(stream);
   }
 }
