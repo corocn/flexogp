@@ -5,7 +5,7 @@ import handlebars from 'handlebars';
 
 @Injectable()
 export class AppService {
-  async getHello() {
+  async getFile() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 630 });
@@ -18,7 +18,8 @@ export class AppService {
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
     await page.evaluateHandle('document.fonts.ready');
     await page.screenshot({ path: './tmp/example.png' });
+    await browser.close();
 
-    return 'OK';
+    return fs.createReadStream('./tmp/example.png');
   }
 }
