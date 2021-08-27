@@ -21,6 +21,7 @@ export class AppService {
         "--disable-dev-shm-usage",
         "--disable-setuid-sandbox",
         "--no-sandbox",
+        "--single-process"
       ]
     });
     const page = await browser.newPage();
@@ -36,7 +37,6 @@ export class AppService {
     await page.waitForNavigation({ waitUntil: 'networkidle0' });
     await page.evaluateHandle('document.fonts.ready');
     const buffer = await page.screenshot();
-    await browser.close();
 
     return bufferToStream(buffer);
   }
