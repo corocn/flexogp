@@ -33,9 +33,10 @@ export class AppService {
     const template = handlebars.compile(hbsFile);
     const html = template({ title: text });
 
-    page.setContent(html);
-    await page.waitForNavigation({ waitUntil: 'networkidle0' });
+    page.setContent(html, { waitUntil: 'networkidle0' });
+    await page.waitForNavigation();
     await page.evaluateHandle('document.fonts.ready');
+
     const buffer = await page.screenshot();
 
     return bufferToStream(buffer);
