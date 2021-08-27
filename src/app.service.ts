@@ -13,8 +13,16 @@ const bufferToStream = (myBuffer) => {
 
 @Injectable()
 export class AppService {
-  async createImage(text: string, layoutName = 'default') {
-    const browser = await puppeteer.launch();
+  async createImage(text: string = 'corocn.dev', layoutName = 'default') {
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: [
+        "--disable-gpu",
+        "--disable-dev-shm-usage",
+        "--disable-setuid-sandbox",
+        "--no-sandbox",
+      ]
+    });
     const page = await browser.newPage();
     await page.setViewport({ width: 1200, height: 630 });
 
