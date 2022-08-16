@@ -1,6 +1,6 @@
-FROM buildkite/puppeteer:latest
+FROM itisfoundation/puppeteer
 
-RUN apt-get install unzip
+RUN  apt-get update & apt-get install unzip
 
 # install fonts
 RUN wget 'https://fonts.google.com/download?family=Noto+Sans+JP' -O googlefonts.zip \
