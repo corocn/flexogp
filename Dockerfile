@@ -1,4 +1,4 @@
-FROM itisfoundation/puppeteer
+FROM ghcr.io/puppeteer/puppeteer:16.1.0
 
 RUN  apt-get update & apt-get install unzip
 
