@@ -1,13 +1,15 @@
 FROM ghcr.io/puppeteer/puppeteer:16.1.0
 
 USER root
-RUN sudo apt-get update && sudo apt-get install -y unzip
+RUN apt-get update && apt-get install -y unzip
 
 # install fonts
 RUN wget 'https://fonts.google.com/download?family=Noto+Sans+JP' -O googlefonts.zip \
     && unzip googlefonts.zip -d /usr/share/fonts/googlefonts/ \
     && rm -f googlefonts.zip \
     && fc-cache -fv
+
+USER pptruser
 
 WORKDIR /app
 COPY yarn.lock /app/yarn.lock
