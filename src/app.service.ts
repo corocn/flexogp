@@ -20,7 +20,9 @@ export class AppService {
         "--disable-gpu",
         "--disable-dev-shm-usage",
         "--disable-setuid-sandbox",
-        "--no-sandbox",
+        '--no-first-run',
+        '--no-sandbox',
+        '--no-zygote',
         "--single-process"
       ]
     });

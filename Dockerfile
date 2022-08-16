@@ -1,7 +1,7 @@
 FROM ghcr.io/puppeteer/puppeteer:16.1.0
 
 USER root
-RUN apt-get update && apt-get install -y unzip
+RUN apt-get update && apt-get install -y unzip libxshmfence-dev
 
 # install fonts
 RUN wget 'https://fonts.google.com/download?family=Noto+Sans+JP' -O googlefonts.zip \

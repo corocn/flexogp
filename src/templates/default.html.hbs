@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>default</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0/css/bootstrap-reboot.css" rel="stylesheet">
   <style>
     body {
       font-family: 'Noto Sans JP', sans-serif;
@@ -25,10 +24,10 @@
       height: 580px;
       background-color: white;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start;
+      align-items: top;
       padding: 64px;
-      text-align: center;
+      text-align: left;
       border-radius: 12px;
       box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
     }
@@ -41,7 +40,7 @@
 
     .user {
       position: absolute;
-      top: 460px;
+      top: 530px;
       left: 50px;
       min-height: 96px;
     }
@@ -59,7 +58,7 @@
 
     .site-title {
       position: absolute;
-      top: 460px;
+      top: 560px;
       right: 50px;
       min-height: 96px;
       font-size: 32px;
@@ -78,15 +77,7 @@
     <div class="text">
       {{ title }}
     </div>
-    <div class="user flex">
-      <div class="user__avatar">
-        <img src="https://pbs.twimg.com/profile_images/1353337300214665222/bhFeR-mO_400x400.jpg" />
-      </div>
-      <div class="user__name">
-        corocn
-      </div>
-    </div>
-    <div class="site-title flex">
+    <div class="site-title">
       corocn.dev
     </div>
   </div>
