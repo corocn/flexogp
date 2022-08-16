@@ -1,6 +1,7 @@
 FROM ghcr.io/puppeteer/puppeteer:16.1.0
 
-RUN apt-get update && apt-get install -y unzip
+USER root
+RUN sudo apt-get update && sudo apt-get install -y unzip
 
 # install fonts
 RUN wget 'https://fonts.google.com/download?family=Noto+Sans+JP' -O googlefonts.zip \
