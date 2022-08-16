@@ -1,4 +1,4 @@
-FROM buildkite/puppeteer:10.0.0
+FROM buildkite/puppeteer:latest
 
 RUN apt-get update && apt-get install unzip
 
