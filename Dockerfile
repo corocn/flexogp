@@ -1,5 +1,6 @@
 FROM buildkite/puppeteer:latest
 
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 RUN apt-get update && apt-get install unzip
 
 # install fonts
