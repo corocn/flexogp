@@ -9,8 +9,6 @@ RUN wget 'https://fonts.google.com/download?family=Noto+Sans+JP' -O googlefonts.
     && rm -f googlefonts.zip \
     && fc-cache -fv
 
-USER pptruser
-
 WORKDIR /app
 COPY yarn.lock /app/yarn.lock
 COPY package.json /app/package.json
